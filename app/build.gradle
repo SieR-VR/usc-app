@@ -23,8 +23,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
+                def ndkDir = android.ndkDirectory
+                
                 cppFlags '-std=c++17'
-                arguments "-DANDROID_STL=c++_shared", "-DANDROID_SYSROOT_PATH=/home/sier/android-sdk/ndk/21.4.7075529/sysroot/usr", "DANDROID=1"
+                arguments "-DANDROID_STL=c++_shared", "-DANDROID_SYSROOT_PATH=$ndkDir/sysroot/usr", "-DANDROID=1", "-DANDROID_NDK_PLATFORM=$ndkDir/platforms/android-$targetSdk/arch-arm64/usr/lib"
             }
             // ndkBuild {
             //     arguments "APP_PLATFORM=android-28"
