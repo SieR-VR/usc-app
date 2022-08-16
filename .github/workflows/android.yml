@@ -12,9 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: lukka/get-cmake@latest
-    - name: Restore artifacts, or setup vcpkg (do not install any package)
-      uses: lukka/run-vcpkg@v10
+    - uses: friendlyanon/setup-vcpkg@v1
+      with: { committish: acc3bcf76b84ae5041c86ab55fe138ae7b8255c7 }
 
     - uses: actions/checkout@v3
     - name: set up JDK 11
