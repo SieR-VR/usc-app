@@ -26,7 +26,12 @@ android {
                 def ndkDir = android.ndkDirectory
                 
                 cppFlags '-std=c++17'
-                arguments "-DANDROID_STL=c++_shared", "-DANDROID_SYSROOT_PATH=$ndkDir/sysroot/usr", "-DANDROID=1", "-DANDROID_NDK_PLATFORM=$ndkDir/platforms/android-$targetSdk/arch-arm64/usr/lib"
+                arguments "-DANDROID_STL=c++_shared", 
+                          "-DANDROID_SYSROOT_PATH=$ndkDir/sysroot/usr", 
+                          "-DANDROID=1", 
+                          "-DANDROID_NDK_PLATFORM=$ndkDir/platforms/android-$targetSdk/arch-arm64/usr/lib",
+                          "-DCMAKE_TOOLCHAIN_FILE=$vcpkg_toolchain_file",
+                          "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$android_toolchain_file"
             }
             // ndkBuild {
             //     arguments "APP_PLATFORM=android-28"
