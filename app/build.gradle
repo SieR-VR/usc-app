@@ -31,7 +31,9 @@ android {
                           "-DANDROID=1", 
                           "-DANDROID_NDK_PLATFORM=$ndkDir/platforms/android-$targetSdk/arch-arm64/usr/lib",
                           "-DCMAKE_TOOLCHAIN_FILE=$vcpkg_toolchain_file",
-                          "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$android_toolchain_file"
+                          "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$android_toolchain_file",
+                          "-DVCPKG_TARGET_TRIPLET=$vcpkg_target_triplet",
+                          "-DANDROID_ABI=$android_abi"
             }
             // ndkBuild {
             //     arguments "APP_PLATFORM=android-28"
