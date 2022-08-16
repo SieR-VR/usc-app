@@ -31,5 +31,7 @@ jobs:
       
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Grant execute permission for build.sh
+      run: chmod +x build.sh
     - name: Build with Gradle
       run: ./build.sh
