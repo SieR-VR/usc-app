@@ -22,9 +22,11 @@ jobs:
     - name: Setup Android NDK
       uses: nttld/setup-ndk@v1.0.6
       with:
-            ndk-version: r25
+        ndk-version: r25
       
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+      env:
+        ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
