@@ -1,3 +1,6 @@
 [submodule "app/src/main/cpp"]
 	path = app/src/main/cpp
 	url = https://github.com/SieR-VR/usc-android
+[submodule "vcpkg"]
+	path = vcpkg
+	url = https://github.com/microsoft/vcpkg.git
