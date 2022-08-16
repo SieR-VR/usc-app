@@ -2,4 +2,4 @@
 git submodule update --init --recursive
 
 
-./gradlew assembleBuild
+./gradlew assembleDebug
