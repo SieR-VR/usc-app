@@ -12,10 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: friendlyanon/setup-vcpkg@v1
-      with: { committish: acc3bcf76b84ae5041c86ab55fe138ae7b8255c7 }
-
     - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+    - name: vcpkg
+      run: |
+        cd vcpkg
+        ./bootstrap-vcpkg.sh
+    - name: set-env
+      uses: allenevans/set-env@v2.0.0
+      with:
+        VCPKG_ROOT: ${{ github.workspace }}/vcpkg
     - name: set up JDK 11
       uses: actions/setup-java@v3
       with:
