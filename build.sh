@@ -10,6 +10,4 @@ set(VCPKG_C_FLAGS \${VCPKG_C_FLAGS} -std=c99)
 set(VCPKG_CXX_FLAGS \${VCPKG_CXX_FLAGS} -std=c++17)
 " > ./vcpkg/triplets/community/arm64-android.cmake
 
-export ANDROID_NDK_HOME="/home/sier/android-sdk/ndk/21.4.7075529"
-
 ./gradlew assembleDebug
