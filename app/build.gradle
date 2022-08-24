@@ -33,7 +33,8 @@ android {
                           "-DCMAKE_TOOLCHAIN_FILE=$vcpkg_toolchain_file",
                           "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$android_toolchain_file",
                           "-DVCPKG_TARGET_TRIPLET=$vcpkg_target_triplet",
-                          "-DANDROID_ABI=$android_abi"
+                          "-DANDROID_ABI=$android_abi",
+                          "-DCMAKE_C_STANDARD=99"
             }
             // ndkBuild {
             //     arguments "APP_PLATFORM=android-28"
