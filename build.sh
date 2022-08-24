@@ -9,3 +9,5 @@ set(VCPKG_CMAKE_SYSTEM_NAME Android)
 " > /home/runner/work/usc-app/usc-app/vcpkg/triplets/community/arm64-android.cmake
 
 ./gradlew assembleDebug
+
+cat /home/runner/work/usc-app/usc-app/vcpkg/buildtrees/sdl2/install-arm64-android-dbg-out.log
