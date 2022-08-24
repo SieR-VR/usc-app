@@ -7,7 +7,9 @@ set(VCPKG_CRT_LINKAGE dynamic)
 set(VCPKG_LIBRARY_LINKAGE dynamic)
 set(VCPKG_CMAKE_SYSTEM_NAME Android)
 set(VCPKG_C_FLAGS \${VCPKG_C_FLAGS} -std=c99)
-set(VCPKG_CXX_FLAGS \${VCPKG_CXX_FLAGS} -std=c++17)
+set(VCPKG_CXX_FLAGS \${VCPKG_CXX_FLAGS} -std=gnu++17)
 " > ./vcpkg/triplets/community/arm64-android.cmake
 
 ./gradlew assembleDebug
+
+cat /home/runner/work/usc-app/usc-app/vcpkg/buildtrees/sdl2/install-arm64-android-dbg-out.log
