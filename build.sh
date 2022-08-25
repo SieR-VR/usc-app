@@ -11,5 +11,3 @@ set(VCPKG_CXX_FLAGS -std=gnu++17)
 " > ./vcpkg/triplets/community/arm64-android.cmake
 
 ./gradlew assembleDebug
-
-cat /home/runner/work/usc-app/usc-app/vcpkg/buildtrees/sdl2/install-arm64-android-dbg-out.log
