@@ -7,7 +7,7 @@ set(VCPKG_C_FLAGS -std=gnu11)
 set(VCPKG_CXX_FLAGS -std=gnu++17)
 " > ./vcpkg/triplets/community/arm64-android.cmake
 
-# ./gradlew assembleDebug
-# ./gradlew assembleDebug
+./gradlew assembleDebug
+./gradlew assembleDebug
 
 echo "fake success"
