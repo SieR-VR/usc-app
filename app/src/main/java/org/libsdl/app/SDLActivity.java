@@ -283,9 +283,6 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
         return new String[] {
             "SDL2_Debug",
             "OpenSLES",
-            "archive",
-            "jpeg",
-            "png",
             // "SDL2_image",
             // "SDL2_mixer",
             // "SDL2_net",
