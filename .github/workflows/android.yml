@@ -73,3 +73,24 @@ jobs:
       
     - name: Build with Gradle
       run: ./build.sh
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: 'v0.1.0'
+        release_name: 'Release v0.1.0'
+        body: |
+          First Android Release!!
+        draft: false
+        prerelease: false
+
+    - name: Upload files to a GitHub release
+      uses: svenstaro/upload-release-action@2.3.0
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: app/build/outputs/apk/debug/app-debug.apk
+        asset_name: 'usc-app.apk'
+        tag: 'v0.1.0'
