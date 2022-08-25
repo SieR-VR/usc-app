@@ -29,4 +29,4 @@ Currently Supported skins:
 
 [LucidWave](https://github.com/SieR-VR/LucidWave-Android/releases)
 
-5. Extract skin to /sdcard/.usc directory 
+5. Extract skin to /sdcard/.usc/skins directory 
