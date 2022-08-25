@@ -33,14 +33,25 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Cache deps
-      id: cache-deps
+    - name: Prepare NDK dir for caching ( workaround for https://github.com/actions/virtual-environments/issues/1337 )
+      run: |
+        sudo mkdir -p /usr/local/lib/android/sdk/ndk
+        sudo chmod -R 777 /usr/local/lib/android/sdk/ndk
+        sudo chown -R $USER:$USER /usr/local/lib/android/sdk/ndk
+
+    - name: Cache NDK
+      id: cache-ndk
       uses: actions/cache@v3
       with:
-        path: |
-          ${ANDROID_HOME}
-          ${{ github.workspace }}/vcpkg
-        key: ${{ runner.os }}-deps
+        path: /usr/local/lib/android/sdk/ndk
+        key: ${{ runner.os }}-ndk
+
+    - name: Cache vcpkg
+      id: cache-vcpkg
+      uses: actions/cache@v3
+      with:
+        path: ${{ github.workspace }}/vcpkg
+        key: ${{ runner.os }}-vcpkg
 
     - name: Cache build result
       id: cache-build-result
@@ -50,6 +61,10 @@ jobs:
           ${{ github.workspace }}/app/.cxx
           ${{ github.workspace }}/app/build
         key: ${{ runner.os }}-cxx-build
+
+    - name: Install ndk
+      if: steps.cache-ndk.outputs.cache-hit != 'true'
+      run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;21.4.7075529"
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
