@@ -8,23 +8,18 @@
 
 file structure:
 
+```
 /sdcard
-
   /sdcard/DCIM
-
   /sdcard/Android
-
   etc..
 
 And also
-
   /sdcard/.usc
-
     /sdcard/.usc/fonts
-
     /sdcard/.usc/audio
-    
     /sdcard/.usc/readme.txt
+```
 
 4. Download skins
 
