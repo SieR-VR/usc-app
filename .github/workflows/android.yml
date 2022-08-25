@@ -2,9 +2,8 @@ name: Android CI
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -80,10 +79,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: 'v0.1.0'
-        release_name: 'Release v0.1.0'
-        body: |
-          First Android Release!!
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
 
@@ -93,4 +90,4 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: app/build/outputs/apk/debug/app-debug.apk
         asset_name: 'usc-app.apk'
-        tag: 'v0.1.0'
+        tag: ${{ github.ref }}

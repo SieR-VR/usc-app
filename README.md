@@ -1,19 +1,30 @@
-# Build Guide
+# Installation guide
 
-Clone this repo by
+1. install app from [release](https://github.com/SieR-VR/usc-app/releases)
 
-```
-git clone --recurse-submodules https://github.com/SieR-VR/usc-app.git
-```
+2. Download asset files [Asset](https://github.com/SieR-VR/usc-app/releases/tag/Assets)
 
-and install these libraries in some folder
+3. Extract asset files as '.usc' on /sdcard directory
 
-<img width="450" alt="image" src="https://user-images.githubusercontent.com/51986318/184155643-61f4f64f-a42e-4a9a-aecb-db5ee43e4231.png">
+file structure:
 
-finally, run
+/sdcard
+  /sdcard/DCIM
+  /sdcard/Android
+  etc..
 
-```
-./gradlew assembleDebug
-```
+And also
+  /sdcard/.usc
+    /sdcard/.usc/fonts
+    /sdcard/.usc/audio
+    /sdcard/.usc/readme.txt
 
-at project folder
+4. Download skins
+
+Currently Supported skins:
+
+[Default](https://github.com/SieR-VR/usc-default-android/releases)
+
+[LucidWave](https://github.com/SieR-VR/LucidWave-Android/releases)
+
+5. Extract skin to /sdcard/.usc directory 
