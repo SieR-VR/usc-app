@@ -73,3 +73,6 @@ jobs:
       
     - name: Build with Gradle
       run: ./build.sh
+
+    - name: Re-Run build
+      run: ./build.sh

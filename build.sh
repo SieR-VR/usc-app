@@ -8,5 +8,3 @@ set(VCPKG_CXX_FLAGS -std=gnu++17)
 " > ./vcpkg/triplets/community/arm64-android.cmake
 
 ./gradlew assembleDebug
-
-ls ./app/src/main/cpp/bin
