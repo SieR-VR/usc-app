@@ -1,8 +1,8 @@
 # Note
 
-usc-app only support android version < 11
+**usc-app only support android version < 11**
 
-also currently not support touch control!!
+**Also currently not support touch control!!**
 
 # Installation guide
 
