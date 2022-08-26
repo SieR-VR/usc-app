@@ -1,3 +1,9 @@
+# Note
+
+usc-app only support android version < 11
+
+also currently not support touch control!!
+
 # Installation guide
 
 1. install app from [release](https://github.com/SieR-VR/usc-app/releases)
