@@ -35,4 +35,6 @@ Currently Supported skins:
 
 [LucidWave](https://github.com/SieR-VR/LucidWave-Android/releases)
 
+[Nightfall](https://github.com/Hoshikara/Nightfall/tree/1.5.0-app)
+
 5. Extract skin to /sdcard/.usc/skins directory 
