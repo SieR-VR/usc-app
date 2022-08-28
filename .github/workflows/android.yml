@@ -7,9 +7,23 @@ on:
 
 jobs:
   build:
-
+    strategy:
+      matrix:
+        arch: [arm64, arm]
+        include:
+          - arch: arm64
+            vcpkg_target_triplet: arm64-android
+            android_abi: arm64-v8a
+            ndk_platform_arch: arch-arm64
+          - arch: arm
+            vcpkg_target_triplet: arm-android
+            android_abi: armeabi-v7a
+            ndk_platform_arch: arch-arm
     runs-on: ubuntu-latest
-
+    env: 
+      VCPKG_TARGET_TRIPLET: ${{ matrix.vcpkg_target_triplet }}
+      ANDROID_ABI: ${{ matrix.android_abi }}
+      NDK_PLATFORM_ARCH: ${{ matrix.ndk_platform_arch }}
     steps:
     - uses: actions/checkout@v3
       with:

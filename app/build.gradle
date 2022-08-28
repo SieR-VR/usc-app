@@ -17,7 +17,7 @@ android {
         versionName "1.0"
 
         ndk {
-            abiFilters 'arm64-v8a'
+            abiFilters System.env.ANDROID_ABI
         }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -29,11 +29,11 @@ android {
                 arguments "-DANDROID_STL=c++_shared", 
                           "-DANDROID_SYSROOT_PATH=$ndkDir/sysroot/usr", 
                           "-DANDROID=1", 
-                          "-DANDROID_NDK_PLATFORM=$ndkDir/platforms/android-$targetSdk/arch-arm64/usr/lib",
+                          "-DANDROID_NDK_PLATFORM=$ndkDir/platforms/android-$targetSdk/$System.env.NDK_PLATFORM_ARCH/usr/lib",
                           "-DCMAKE_TOOLCHAIN_FILE=$vcpkg_toolchain_file",
                           "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$android_toolchain_file",
-                          "-DVCPKG_TARGET_TRIPLET=$vcpkg_target_triplet",
-                          "-DANDROID_ABI=$android_abi"
+                          "-DVCPKG_TARGET_TRIPLET=$System.env.VCPKG_TARGET_TRIPLET",
+                          "-DANDROID_ABI=$System.env.ANDROID_ABI"
             }
             // ndkBuild {
             //     arguments "APP_PLATFORM=android-28"
