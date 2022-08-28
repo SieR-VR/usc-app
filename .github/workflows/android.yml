@@ -63,5 +63,5 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: app/build/outputs/apk/debug/app-debug.apk
-        asset_name: 'usc-app.apk'
+        asset_name: 'usc-app-${{ matrix.arch }}.apk'
         tag: ${{ github.ref }}
