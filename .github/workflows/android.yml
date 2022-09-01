@@ -7,9 +7,23 @@ on:
 
 jobs:
   build:
-
+    strategy:
+      matrix:
+        arch: [arm64, arm]
+        include:
+          - arch: arm64
+            vcpkg_target_triplet: arm64-android
+            android_abi: arm64-v8a
+            ndk_platform_arch: arch-arm64
+          - arch: arm
+            vcpkg_target_triplet: arm-neon-android
+            android_abi: armeabi-v7a
+            ndk_platform_arch: arch-arm
     runs-on: ubuntu-latest
-
+    env: 
+      VCPKG_TARGET_TRIPLET: ${{ matrix.vcpkg_target_triplet }}
+      ANDROID_ABI: ${{ matrix.android_abi }}
+      NDK_PLATFORM_ARCH: ${{ matrix.ndk_platform_arch }}
     steps:
     - uses: actions/checkout@v3
       with:
@@ -49,5 +63,5 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: app/build/outputs/apk/debug/app-debug.apk
-        asset_name: 'usc-app.apk'
+        asset_name: 'usc-app-${{ matrix.arch }}.apk'
         tag: ${{ github.ref }}
