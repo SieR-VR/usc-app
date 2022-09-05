@@ -6,28 +6,11 @@
 
 # Installation guide
 
-1. install app from [release](https://github.com/SieR-VR/usc-app/releases)
+Install app from [release](https://github.com/SieR-VR/usc-app/releases)
 
-2. Download asset files [Asset](https://github.com/SieR-VR/usc-app/releases/tag/Assets)
+Game files are installed to `~/Android/data/com.example.unnamed_sdvx_clone/files`
 
-3. Extract asset files as '.usc' on /sdcard directory
-
-file structure:
-
-```
-/sdcard
-  /sdcard/DCIM
-  /sdcard/Android
-  etc..
-
-And also
-  /sdcard/.usc
-    /sdcard/.usc/fonts
-    /sdcard/.usc/audio
-    /sdcard/.usc/readme.txt
-```
-
-4. Download skins
+## Skins
 
 Currently Supported skins:
 
@@ -37,4 +20,4 @@ Currently Supported skins:
 
 [Nightfall](https://github.com/Hoshikara/Nightfall/tree/1.5.0-app)
 
-5. Extract skin to /sdcard/.usc/skins directory 
+Extract skins to `~/Android/data/com.example.unnamed_sdvx_clone/files/skins` directory 
