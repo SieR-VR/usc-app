@@ -31,7 +31,7 @@ android {
                           "-DANDROID_STL=c++_shared",
                           "-DANDROID_SYSROOT_PATH=$ndkDir/toolchains/llvm/prebuilt/linux-x86_64/sysroot/", 
                           "-DANDROID_NDK_PLATFORM=$ndkDir/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/$System.env.NDK_PLATFORM_ARCH/$targetSdk",
-                          "-DCMAKE_TOOLCHAIN_FILE=$System.env.GITHUB_ACTION_PATH/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                          "-DCMAKE_TOOLCHAIN_FILE=$System.env.PROJECT_PATH/vcpkg/scripts/buildsystems/vcpkg.cmake",
                           "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$ndkDir/build/cmake/android.toolchain.cmake",
                           "-DVCPKG_TARGET_TRIPLET=$System.env.VCPKG_TARGET_TRIPLET",
                           "-DANDROID_ABI=$System.env.ANDROID_ABI"
