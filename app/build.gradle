@@ -8,6 +8,7 @@ else {
 }
 android {
     compileSdk 30
+    ndkVersion System.env.NDK_VERSION
 
     defaultConfig {
         applicationId "com.example.unnamed_sdvx_clone"
@@ -26,19 +27,15 @@ android {
                 def ndkDir = android.ndkDirectory
                 
                 cppFlags '-std=c++17'
-                arguments "-DANDROID_STL=c++_shared", 
-                          "-DANDROID_SYSROOT_PATH=$ndkDir/sysroot/usr", 
-                          "-DANDROID=1", 
-                          "-DANDROID_NDK_PLATFORM=$ndkDir/platforms/android-$targetSdk/$System.env.NDK_PLATFORM_ARCH/usr/lib",
-                          "-DCMAKE_TOOLCHAIN_FILE=$vcpkg_toolchain_file",
-                          "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$android_toolchain_file",
+                arguments "-DANDROID=1", 
+                          "-DANDROID_STL=c++_shared",
+                          "-DANDROID_SYSROOT_PATH=$ndkDir/toolchains/llvm/prebuilt/linux-x86_64/sysroot/", 
+                          "-DANDROID_NDK_PLATFORM=$ndkDir/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/$System.env.NDK_PLATFORM_ARCH/$targetSdk",
+                          "-DCMAKE_TOOLCHAIN_FILE=$System.env.PROJECT_PATH/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                          "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$ndkDir/build/cmake/android.toolchain.cmake",
                           "-DVCPKG_TARGET_TRIPLET=$System.env.VCPKG_TARGET_TRIPLET",
                           "-DANDROID_ABI=$System.env.ANDROID_ABI"
             }
-            // ndkBuild {
-            //     arguments "APP_PLATFORM=android-28"
-            //     abiFilters 'arm64-v8a'
-            // }
         }
     }
 
@@ -59,6 +56,7 @@ android {
             debuggable true
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -67,14 +65,10 @@ android {
         cmake {
             path 'src/main/cpp/CMakeLists.txt'
         }
-        // ndkBuild {
-        //     path 'src/main/cpp/arm64-v8a/Android.mk'
-        // }
     }
     buildFeatures {
         viewBinding true
     }
-    ndkVersion ndkVersion
 
     if (buildAsLibrary) {
         libraryVariants.all { variant ->

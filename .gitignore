@@ -4,3 +4,4 @@ app/.cxx
 app/build
 
 local.properties
+build_local.sh

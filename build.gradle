@@ -4,7 +4,7 @@ plugins {
 }
 
 ext {
-    ndkVersion = '25.0.8775105'
+    ndkVersion = System.env.NDK_VERSION
 }
 
 task clean(type: Delete) {
