@@ -8,7 +8,7 @@
 
 Install app from [release](https://github.com/SieR-VR/usc-app/releases)
 
-Game files are installed to `~/Android/data/com.example.unnamed_sdvx_clone/files`
+Game files are installed to `/sdcard/.usc`
 
 ## Skins
 
@@ -20,4 +20,4 @@ Currently Supported skins:
 
 [Nightfall](https://github.com/Hoshikara/Nightfall/tree/1.5.0-app)
 
-Extract skins to `~/Android/data/com.example.unnamed_sdvx_clone/files/skins` directory 
+Extract skins to `~/sdcard/.usc/skins` directory 
