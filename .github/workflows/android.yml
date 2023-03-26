@@ -7,7 +7,7 @@ on:
 
 env:
   NDK_VERSION: 25.2.9519653
-  ANDROID_NDK_HOME: /usr/local/lib/android/ndk/25.2.9519653
+  ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
 
 jobs:
   build:
