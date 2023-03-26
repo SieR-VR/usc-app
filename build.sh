@@ -7,6 +7,3 @@ set(VCPKG_LIBRARY_LINKAGE static)
 " > ./vcpkg/triplets/community/arm64-android.cmake
 
 ./gradlew assembleDebug
-
-cat "/home/runner/work/usc-app/usc-app/vcpkg/buildtrees/detect_compiler/config-${VCPKG_TARGET_TRIPLET}-rel-err.log"
-ls "/usr/local/lib/android/sdk/ndk/"
