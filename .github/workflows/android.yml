@@ -27,7 +27,7 @@ jobs:
       VCPKG_TARGET_TRIPLET: ${{ matrix.vcpkg_target_triplet }}
       ANDROID_ABI: ${{ matrix.android_abi }}
       NDK_PLATFORM_ARCH: ${{ matrix.ndk_platform_arch }}
-      ANDROID_NDK_HOME: /usr/local/lib/android/ndk/${{ env.NDK_VERSION }}
+      ANDROID_NDK_HOME: /usr/local/lib/android/ndk/$NDK_VERSION
     steps:
     - uses: actions/checkout@v3
       with:
