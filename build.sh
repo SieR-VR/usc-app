@@ -8,3 +8,4 @@ set(VCPKG_LIBRARY_LINKAGE static)
 
 ./gradlew assembleDebug
 
+cat /home/runner/work/usc-app/usc-app/vcpkg/buildtrees/detect_compiler/config-arm64-android-rel-err.log
