@@ -5,6 +5,11 @@ on:
     tags:
       - 'v*'
 
+env:
+  NDK_VERSION: 25.2.9519653
+  PROJECT_PATH: $GITHUB_ACTION_PATH
+  ANDROID_NDK_HOME: /usr/local/lib/android/ndk/$NDK_VERSION
+
 jobs:
   build:
     strategy:
@@ -14,11 +19,11 @@ jobs:
           - arch: arm64
             vcpkg_target_triplet: arm64-android
             android_abi: arm64-v8a
-            ndk_platform_arch: arch-arm64
+            ndk_platform_arch: aarch64-linux-android
           - arch: arm
             vcpkg_target_triplet: arm-neon-android
             android_abi: armeabi-v7a
-            ndk_platform_arch: arch-arm
+            ndk_platform_arch: arm-linux-androideabi
     runs-on: ubuntu-latest
     env: 
       VCPKG_TARGET_TRIPLET: ${{ matrix.vcpkg_target_triplet }}
@@ -48,10 +53,11 @@ jobs:
 
     - name: Install ndk
       if: steps.cache-ndk.outputs.cache-hit != 'true'
-      run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;21.4.7075529"
+      run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;$NDK_VERSION"
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
     - name: Grant execute permission for build.sh
       run: chmod +x build.sh
       
